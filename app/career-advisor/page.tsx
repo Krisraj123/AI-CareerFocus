@@ -23,7 +23,7 @@ export default function CareerAdvisor() {
     formData.append('pdf', selectedFile as Blob);
 
     try {
-      const response = await fetch('https://070f-54-145-141-98.ngrok-free.app/career_advisor', {
+      const response = await fetch('https://nameisjack-career-coach.hf.space/career_advisor', {
         method: 'POST',
         body: formData
       });

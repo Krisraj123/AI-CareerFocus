@@ -23,7 +23,7 @@ export default function CoverLetter() {
     formData.append('pdf', selectedFile as Blob);
 
     try {
-      const response = await fetch('https://070f-54-145-141-98.ngrok-free.app/generate-cover-letter', {
+      const response = await fetch('https://nameisjack-career-coach.hf.space/generate-cover-letter', {
         method: 'POST',
         body: formData
       });

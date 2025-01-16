@@ -23,7 +23,7 @@ export default function ResumePolisher() {
     formData.append('pdf', selectedFile as Blob);
 
     try {
-      const response = await fetch('https://070f-54-145-141-98.ngrok-free.app/resume-polisher', {
+      const response = await fetch('https://nameisjack-career-coach.hf.space/resume-polisher', {
         method: 'POST',
         body: formData
       });
