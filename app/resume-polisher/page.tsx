@@ -18,18 +18,18 @@ export default function ResumePolisher() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     const formData = new FormData(e.currentTarget);
     formData.append('pdf', selectedFile as Blob);
-    
+
     try {
-      const response = await fetch('/api/polish-resume', {
+      const response = await fetch('https://070f-54-145-141-98.ngrok-free.app/resume-polisher', {
         method: 'POST',
         body: formData
       });
-      
+
       const data = await response.json();
-      setResult(data.polishedContent);
+      setResult(data.polish_resume);
       resultRef.current?.scrollIntoView({ behavior: "smooth" });
     } catch (error) {
       setResult("An error occurred while polishing the resume. Please try again.");
@@ -46,7 +46,7 @@ export default function ResumePolisher() {
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Home
         </Link>
-        
+
         <Card className="max-w-2xl mx-auto p-8 border border-primary/10 bg-card/50 backdrop-blur-sm">
           <div className="flex items-center gap-3 mb-8">
             <div className="bg-primary/10 rounded-full p-3">
@@ -54,7 +54,7 @@ export default function ResumePolisher() {
             </div>
             <h1 className="text-2xl font-bold">Resume Polisher</h1>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-muted-foreground mb-2">
@@ -68,7 +68,7 @@ export default function ResumePolisher() {
                 <FileEdit className="h-4 w-4" />
                 <span className="text-sm">Enhancement Instructions</span>
               </div>
-              <Textarea 
+              <Textarea
                 name="instructions"
                 placeholder="Polish Instructions"
                 className="min-h-[200px]"
